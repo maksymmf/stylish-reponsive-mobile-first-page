@@ -1,0 +1,1259 @@
+@import '_vars';
+@import '_helpers';
+@import '_fonts';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* mobile first  */
+
+.top-section {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient($blue-transparent-color 30%, $white-color 70%);
+    box-shadow: 0 1px 4px $purple-color;
+    padding: 40px 20px 40px 60px;
+
+    @include md {
+        padding: 40px 60px 40px 130px;
+    }
+
+    @include lg {
+        padding: 40px 60px 40px 170px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+        font-family: $regular-objective;
+
+        @include md {
+            font-size: 1.6rem;
+        }
+
+        @include lg {
+            font-size: 3rem;
+            line-height: 3.5rem;
+        }
+    }
+
+    p {
+        font-size: .75rem;
+        font-family: $light-objective;
+        color: $black-color;
+
+        @include md {
+            font-size: .9rem;
+        }
+
+        @include lg {
+            font-size: 1.2rem;
+            line-height: 2.3rem;
+        }
+    }
+
+    a {
+        font-size: .75rem;
+        font-family: $light-objective;
+        text-decoration: none;
+        color: $black-color;
+
+        @include md {
+            font-size: .9rem;
+        }
+
+        @include lg {
+            font-size: 1.1rem;
+        }
+    }
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        padding-right: 40px;
+        margin-bottom: 30px;
+
+        @include lg {
+            margin-bottom: 45px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+
+            a {
+                img {
+                    width: 63px;
+                    height: 17px;
+
+                    @include md {
+                        width: 63px;
+                        height: 17px;
+                    }
+
+                    @include lg {
+                        width: 125px;
+                        height: 33px;
+                    }
+                }
+            }
+        }
+
+        .nav-head {
+            display: flex;
+            flex-direction: row;
+            flex: 1 1 auto;
+            justify-content: flex-end;
+
+            ul {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+
+                @include xs {
+                    flex-direction: column;
+                }
+
+                @include lg {
+                    margin-right: 15%;
+                }
+
+                li {
+                    list-style: none;
+                    margin-left: 5px;
+
+                    @include md {
+                        margin-left: 20px;
+                    }
+
+                    @include lg {
+                        margin-left: 50px;
+                    }
+
+                    a {
+                        transition: all .3s;
+
+                        &:hover {
+                            color: $blue-color;
+                        }
+
+                        &::after {
+                            content: '';
+                            display: block;
+                            width: 0;
+                            height: 1px;
+                            background: $blue-color;
+                            transition: width .7s;
+                        }
+
+                        &:hover:after {
+                            width: 100%;
+                        }
+
+                        &:active {
+                            color: $gold-color;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+    .new-e-commerce-app {
+        display: flex;
+        flex-direction: row;
+
+        .text-section {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+            margin-right: 10px;
+
+            @include md {
+                justify-content: space-around;
+            }
+
+            @include lg {
+                justify-content: space-evenly;
+            }
+
+            h1 {
+                @extend %margin-smaller-media;
+            }
+
+            p {
+                @extend %margin-medium-media;
+            }
+
+            .stores-icons {
+                display: flex;
+                flex-direction: row;
+
+                a {
+                    img {
+                        width: 90px;
+                        height: 30px;
+                        transition: all .5s ease-in-out;
+
+                        &:first-of-type {
+                            margin-right: 5px;
+                        }
+
+                        &:hover {
+                            transform: scale(1.1);
+                        }
+
+                        @include lg {
+                            width: 165px;
+                            height: 50px;
+
+                            &:first-of-type {
+                                margin-right: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .two-phones {
+            display: none;
+
+            @include md {
+                display: flex;
+                flex: 1 1 auto;
+            }
+
+            @include lg {
+                display: flex;
+                flex: 1 1 auto;
+            }
+
+            img {
+                width: 140px;
+                height: 180px;
+
+                @include md {
+                    width: 207px;
+                    height: 252px;
+                }
+
+                @include lg {
+                    width: 414px;
+                    height: 504px;
+                }
+            }
+        }
+    }
+}
+
+.about-us {
+    display: flex;
+    background: no-repeat top right / 13% url(../img/blue-square.png), no-repeat bottom left / 13% url(../img/brown-square.png);
+    position: relative;
+    padding: 40px 60px;
+
+    @include md {
+        padding: 80px 130px;
+        background-size: 12%;
+    }
+
+    @include lg {
+        padding: 120px 170px;
+        background-size: 13.5%;
+    }
+
+    .cards-blocks {
+        &::after {
+            content: " ";
+            display: table;
+            clear: both;
+        }
+
+        h2 {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 5%;
+            font-size: 1.1rem;
+            font-family: $regular-objective;
+
+            @include md {
+                font-size: 1.3rem;
+            }
+
+            @include lg {
+                font-size: 2.3rem;
+                letter-spacing: .3rem;
+                line-height: 2.8rem;
+                width: 50%;
+                float: left;
+                margin-top: 5%;
+                margin-bottom: 8%;
+            }
+        }
+
+        .cards {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            padding: 4%;
+            margin-bottom: 5%;
+            background-color: $white-color;
+            box-shadow: 0 5px 40px 20px $blue-transparent-color;
+            border-radius: 2px;
+            z-index: 9;
+            display: flex;
+            flex-direction: column;
+
+            @include lg {
+                width: 40%;
+                margin-top: 5%;
+
+                &:nth-child(odd) {
+                    float: left;
+                    margin-left: 8%;
+                }
+
+                &:nth-child(even) {
+                    float: right;
+                }
+            }
+
+            img {
+
+                @extend %margin-bigger-media;
+
+                align-self: center;
+                width: 100px;
+                height: 70px;
+
+                @include md {
+                    width: 150px;
+                    height: 105px;
+                }
+
+                @include lg {
+                    width: 200px;
+                    height: 140px;
+                }
+            }
+
+            h6 {
+                font-size: 0.75rem;
+                font-family: $bold-objective;
+                margin-bottom: 7px;
+
+                @include md {
+                    font-size: .85rem;
+                    margin-bottom: 12.5px;
+                }
+
+                @include lg {
+                    font-size: 1.1rem;
+                    margin-bottom: 25px;
+                    letter-spacing: .1rem;
+                }
+            }
+
+            p {
+
+                @extend %margin-bigger-media;
+
+                font-size: 0.75rem;
+                font-family: $light-objective;
+                color: $gray-color;
+
+                @include md {
+                    font-size: .85rem;
+                    margin-bottom: 25px;
+                }
+
+                @include lg {
+                    font-size: 1rem;
+                    line-height: 1.3rem;
+                    margin-bottom: 50px;
+                }
+            }
+
+            a {
+                font-size: 0.75rem;
+                font-family: $regular-objective;
+                color: $blue-color;
+                text-decoration: none;
+                transition: all .4s;
+                background: no-repeat 35% center / 6% url(../img/right-arrow.png);
+
+                &:hover {
+                    text-shadow: 1px 1px 0 lighten($purple-color, 15%), 2px 2px 0 lighten($purple-color, 10%), 3px 3px 0 lighten($purple-color, 5%);
+                    transform: translate(-3px, -3px);
+                }
+
+                @include md {
+                    background-position: left 20% bottom 50%;
+                    background-size: 4%;
+                }
+
+                @include lg {
+                    font-size: .9rem;
+                    background-position: left 43% bottom 50%;
+                    background-size: 8%;
+                }
+            }
+        }
+    }
+
+    .dots-square-decoration {
+        img {
+            width: 60px;
+            height: 60px;
+
+            @include md {
+                width: 100px;
+                height: 100px;
+            }
+
+            @include lg {
+                width: 140px;
+                height: 140px;
+            }
+        }
+    }
+
+    .top-dots-square {
+        position: absolute;
+        top: 60px;
+        right: 30px;
+
+        @include md {
+            top: 85px;
+            right: 80px;
+        }
+
+        @include lg {
+            top: 100px;
+            right: 100px;
+        }
+    }
+
+    .middle-dots-square {
+        position: absolute;
+        left: 15px;
+        bottom: 320px;
+
+        @include md {
+            left: 60px;
+            bottom: 400px;
+        }
+
+        @include lg {
+            left: 160px;
+            bottom: 620px;
+        }
+    }
+
+    .bottom-dots-square {
+        position: absolute;
+        bottom: 20px;
+        right: 30px;
+
+        @include md {
+            bottom: 55px;
+            right: 80px;
+        }
+
+        @include lg {
+            bottom: 100px;
+            right: 100px;
+        }
+    }
+}
+
+.how-it-works {
+    display: flex;
+    flex-direction: column;
+    background-color: $blue-transparent-color;
+    padding: 40px 20px;
+    width: 100vw;
+
+    @include md {
+        padding: 60px 130px;
+    }
+
+    @include lg {
+        padding: 100px 170px;
+    }
+
+    h5 {
+        font-size: 0.85rem;
+        font-family: $bold-objective;
+        text-align: center;
+        color: $blue-color;
+        margin-bottom: 25px;
+
+        @include md {
+            font-size: 1rem;
+            margin-bottom: 40px;
+        }
+
+        @include lg {
+            font-size: 1.5rem;
+            letter-spacing: .1rem;
+            margin-bottom: 80px;
+        }
+    }
+
+    .how-it-works-blocks {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .instruction {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+            max-width: 25%;
+            align-items: center;
+            text-align: center;
+
+            img {
+
+                @extend %margin-medium-media;
+
+                width: 25px;
+                height: 25px;
+
+                @include md {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                @include lg {
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+
+            h6 {
+
+                @extend %margin-smaller-media;
+
+                font-size: 0.75rem;
+                font-family: $regular-objective;
+
+                @include md {
+                    font-size: .85rem;
+                }
+
+                @include lg {
+                    font-size: 1rem;
+                    line-height: 1.3rem;
+                }
+            }
+
+            p {
+                color: $black-color;
+                font-size: 0.75rem;
+                font-family: $light-objective;
+                color: $gray-color;
+
+                @include lg {
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+.feedback {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+    position: relative;
+    border-bottom: 2px solid $blue-transparent-color;
+    padding: 40px 60px 20px 60px;
+
+    @include md {
+        padding: 80px 130px 40px 130px;
+    }
+
+    @include lg {
+        border-bottom: none;
+        background: no-repeat left 82.6% / 45% 45% url(../img/blue-area.png);
+        padding: 120px 170px 60px 170px;
+    }
+
+    h5 {
+        text-align: center;
+        font-family: $bold-objective;
+        margin-bottom: 10%;
+
+        @include md {
+            font-size: 1.1rem;
+        }
+
+        @include lg {
+            font-size: 1.6rem;
+        }
+    }
+
+    .feedback-blocks {
+        display: flex;
+        flex-direction: column;
+
+        @include lg {
+            flex-direction: row;
+            align-items: flex-end;
+        }
+
+        .woman-with-phone {
+            display: flex;
+            flex: 1 1 auto;
+            align-self: center;
+            margin-bottom: 15px;
+
+            @include lg {
+                flex: 1 1 50%;
+            }
+
+            img {
+                width: 108px;
+                height: 140px;
+
+                @include md {
+                    width: 190px;
+                    height: 250px;
+                }
+
+                @include lg {
+                    width: 360px;
+                    height: 468px;
+                }
+            }
+        }
+
+        .quotes-and-buttons {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+            align-items: center;
+
+            @include lg {
+                flex: 1 1 50%;
+                align-items: flex-end;
+                padding-left: 50px;
+            }
+
+            .quotes {
+                display: flex;
+                flex-direction: column;
+
+                img {
+
+                    @extend %margin-bigger-media;
+
+                    width: 12px;
+                    height: 10px;
+
+                    @include md {
+                        width: 24px;
+                        height: 20px;
+                    }
+
+                    @include lg {
+                        width: 50px;
+                        height: 45px;
+                    }
+                }
+
+                p {
+
+                    @extend %margin-bigger-media;
+
+                    font-size: 0.75rem;
+                    font-family: $light-objective;
+                    color: $gray-color;
+
+                    @include md {
+                        font-size: .85rem;
+                    }
+
+                    @include lg {
+                        font-size: 1rem;
+                        line-height: 1.3rem;
+                    }
+
+                }
+
+                cite {
+                    font-size: 0.85rem;
+                    font-style: normal;
+                    font-family: $medium-objective;
+
+                    @include md {
+                        font-size: .95rem;
+                    }
+
+                    @include lg {
+                        font-size: 1.1rem;
+                        line-height: 1.3rem;
+                    }
+                }
+            }
+
+            .buttons {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                margin-top: 10px;
+
+                .button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: none;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 2px 0 0 2px;
+                    font-size: 10px;
+                    text-decoration: none;
+
+                    @include md {
+                        width: 45px;
+                        height: 45px;
+                        font-size: 15px;
+                    }
+
+                    @include lg {
+                        font-size: 20px;
+                        width: 75px;
+                        height: 75px;
+                        font-size: 20px;
+                    }
+
+                    &:nth-of-type(1) {
+                        background: $blue-color;
+                        color: $white-color;
+
+                        &:hover {
+                            box-shadow: inset 0 0 3px 1.5px $white-color;
+                        }
+                    }
+
+                    &:nth-of-type(2) {
+                        background: $white-color;
+                        color: $blue-color;
+
+                        &:hover {
+                            box-shadow: inset 0 0 3px 1.5px $blue-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .feedback-dots-square {
+        position: absolute;
+        right: 0;
+        top: 45%;
+
+        img {
+            width: 60px;
+            height: 60px;
+
+            @include md {
+                width: 100px;
+                height: 100px;
+            }
+
+            @include lg {
+                width: 140px;
+                height: 140px;
+            }
+        }
+    }
+}
+
+.download-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: no-repeat left 105.5% / 13% url(../img/bottom-blue-squares.png), no-repeat right 105.5% / 13% url(../img/bottom-brown-squares.png);
+    padding: 20px 60px 40px 60px;
+
+    @include md {
+        background-position: left 107%, right 107%;
+        padding: 40px 130px 80px 130px;
+    }
+
+    @include lg {
+        flex-direction: row;
+        background-position: left 112%, right 112%;
+        background-size: 13.5%;
+        padding: 60px 170px 120px 170px;
+    }
+
+    .three-phones {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        align-self: center;
+        margin-bottom: 15px;
+
+        @include lg {
+            flex: 1 1 50%;
+        }
+
+        img {
+            width: 138px;
+            height: 122px;
+
+            @include md {
+                width: 280px;
+                height: 240px;
+            }
+
+            @include lg {
+                align-self: flex-start;
+                width: 450px;
+                height: 420px;
+            }
+        }
+    }
+
+    .text-and-icons {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        align-self: center;
+
+        @include lg {
+            flex: 1 1 50%;
+            padding-left: 15px;
+        }
+
+        .download-app-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h5 {
+
+                @extend %margin-smaller-media;
+
+                font-family: $bold-objective;
+
+                @include md {
+                    font-size: 1.1rem;
+                }
+
+                @include lg {
+                    font-size: 1.6rem;
+                }
+            }
+
+            p {
+                font-size: 0.75rem;
+                font-family: $light-objective;
+                color: $gray-color;
+                margin-bottom: 10px;
+
+                @include md {
+                    font-size: .85rem;
+                    margin-bottom: 20px;
+                }
+
+                @include lg {
+                    font-size: 1rem;
+                    line-height: 1.3rem;
+                    margin-bottom: 65px;
+                }
+            }
+        }
+
+        .download-app-icons {
+            display: flex;
+            flex-direction: row;
+            align-self: center;
+
+            img {
+                width: 90px;
+                height: 30px;
+                transition: all .5s ease-in-out;
+
+                &:first-of-type {
+                    margin-right: 5px;
+                }
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+
+                @include md {
+                    &:first-of-type {
+                        margin-right: 20px;
+                    }
+                }
+
+                @include lg {
+                    width: 165px;
+                    height: 50px;
+
+                    &:first-of-type {
+                        margin-right: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    margin-top: auto;
+    background-color: $blue-color;
+    padding: 20px;
+
+    @include md {
+        padding: 30px 60px 10px 60px;
+    }
+
+    @include lg {
+        padding: 60px 80px 20px 80px;
+    }
+
+    p {
+        font-size: .75rem;
+        font-family: $light-objective;
+        color: $white-color;
+
+        @include md {
+            font-size: .85rem;
+        }
+
+        @include lg {
+            font-size: 1rem;
+        }
+    }
+
+    h4 {
+        font-size: 0.75rem;
+        color: $white-color;
+
+        @include md {
+            font-size: .85rem;
+        }
+
+        @include lg {
+            font-size: 1rem;
+            font-family: $medium-objective;
+            letter-spacing: .1rem;
+        }
+    }
+
+    a {
+        font-size: .75rem;
+
+        @include lg {
+            font-size: .9rem;
+            letter-spacing: .1rem;
+        }
+    }
+
+    .footer-blocks {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+
+        @include md {
+            flex-direction: row;
+        }
+
+        .logo-bottom {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+            margin-bottom: 10px;
+
+            @include md {
+                flex: 1 1 10%;
+            }
+
+            img {
+                width: 52px;
+                height: 14px;
+
+                @include md {
+                    width: 65px;
+                    height: 18px;
+                }
+
+                @include lg {
+                    width: 94.5px;
+                    height: 24.3px;
+                }
+            }
+        }
+
+        .nav-foot {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+
+            @include sm {
+                justify-content: space-between;
+            }
+
+            @include md {
+                flex-direction: row;
+                flex: 1 1 40%;
+                justify-content: space-evenly;
+                margin-bottom: 30px;
+            }
+
+            .foot-links {
+                display: flex;
+                flex-direction: column;
+
+                &:first-of-type {
+                    margin-left: 0;
+                }
+
+                li {
+                    list-style: none;
+
+                    &:first-of-type {
+                        margin-bottom: 8px;
+
+                        @include md {
+                            margin-bottom: 15px;
+                        }
+
+                        @include lg {
+                            margin-bottom: 25px;
+                        }
+                    }
+
+                    &:last-of-type {
+                        margin-bottom: 10px;
+                    }
+
+                    h4 {
+                        display: inline-block;
+                        border-bottom: 2px solid $white-color;
+                        padding-bottom: 1px;
+
+                        @include lg {
+                            padding-bottom: 5px;
+                        }
+                    }
+
+                    a {
+
+                        @extend %margin-smaller-media;
+
+                        display: inline-block;
+                        text-decoration: none;
+                        color: $white-color;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+
+                        @include lg {
+                            margin-bottom: 18px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .subscribe {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+            margin-bottom: 10px;
+
+            @include md {
+                flex: 1 1 30%;
+            }
+
+            @include lg {
+                margin-left: 1%;
+            }
+
+            p {
+                margin-bottom: 10px;
+
+                @include md {
+                    margin-bottom: 10px;
+                }
+
+                @include lg {
+                    font-size: 1rem;
+                    line-height: 1.3rem;
+                }
+            }
+
+            .email-submit {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+
+                @include md {
+                    flex-direction: row;
+                }
+
+                input[type="email"] {
+                    width: 100%;
+                    height: 25px;
+                    background: $white-color;
+                    border-radius: 1px;
+                    margin-right: 3px;
+                    margin-bottom: 8px;
+                    font-size: .75rem;
+                    font-family: $light-objective;
+                    padding: 7px 3px;
+                    border: 0 solid;
+                    outline: 1px solid;
+                    outline-color: rgba($white-color, .5);
+                    outline-offset: 0;
+                    transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+
+                    &:hover {
+                        border: 1px solid;
+                        outline-color: rgba($white-color, 0);
+                        outline-offset: 10px;
+                        border: 1px solid;
+                        outline-color: rgba($white-color, 0);
+                        outline-offset: 10px;
+                    }
+
+                    @include md {
+                        width: 148.5px;
+                        height: 29px;
+                        font-size: .85rem;
+                        padding: 10px;
+                        margin-right: 3%;
+                    }
+
+                    @include lg {
+                        width: 218px;
+                        height: 40px;
+                    }
+                }
+
+                button[type="submit"] {
+                    width: 100%;
+                    height: 25px;
+                    color: $blue-color;
+                    background: $white-color;
+                    border-radius: 1px;
+                    font-size: .75rem;
+                    cursor: pointer;
+                    border: 0 solid;
+                    outline: 1px solid;
+                    outline-color: rgba($white-color, .5);
+                    outline-offset: 0;
+                    transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+
+                    &:hover {
+                        border: 1px solid;
+                        outline-color: rgba($white-color, 0);
+                        outline-offset: 10px;
+                    }
+
+                    @include md {
+                        width: 74.25px;
+                        height: 29px;
+                        font-family: $bold-objective;
+                    }
+
+                    @include lg {
+                        width: 108.9px;
+                        height: 40px;
+                        font-size: .85rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .copyright {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-top: .5px solid $white-color;
+        padding-top: 10px;
+
+        @include md {
+            flex-direction: row;
+            justify-content: space-between;
+            padding-top: 15px;
+        }
+
+        @include lg {
+            padding-top: 20px;
+        }
+
+        p {
+            font-size: .75rem;
+            color: $white-color;
+            font-family: $light-objective;
+            margin-bottom: 5px;
+
+            @include lg {
+                font-family: $bold-objective;
+            }
+        }
+
+        .social {
+            display: flex;
+            flex-direction: row;
+            margin-top: 5px;
+
+            @include md {
+                margin-top: 0;
+            }
+
+            li {
+                list-style: none;
+                line-height: 0;
+                margin-left: 8px;
+
+                @include md {
+                    margin-left: 12px;
+                }
+
+                @include lg {
+                    margin-left: 18px;
+                }
+
+                a {
+                    img {
+                        width: auto;
+                        height: 15px;
+
+                        &:hover {
+                            transform: scale(1.2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
