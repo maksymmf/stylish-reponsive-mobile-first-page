@@ -1,3 +1,2 @@
-# Design pixel-perfect page from Figma 
-Design pixel-perfect page project 
-Figma page link: https://www.figma.com/file/WbZB9f054AQfiJW3ARuFzI/E-commerce-(Website)-(Community)?node-id=0%3A1
+# Awesome design mobile-first page!
+Awesome page inspired by design found on Figma
