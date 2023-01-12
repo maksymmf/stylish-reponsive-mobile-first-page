@@ -1,2 +1,2 @@
 # Awesome design mobile-first page!
-Awesome page inspired by design found on Figma
+Stylish design mobile-first page. SCSS and HTML used only. 
